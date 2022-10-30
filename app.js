@@ -17,29 +17,36 @@ var completedTasksHolder=document.getElementById("completed-tasks");//completed-
 //New task list item
 var createNewTaskElement=function(taskString){
   var listItem=document.createElement("li");
+    listItem.className = 'li'
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbx
+    checkBox.className = 'input'
   //label
   var label=document.createElement("label");//label
+    label.className = 'label'
   //input (text)
   var editInput=document.createElement("input");//text
+    editInput.className = 'input'
   //button.edit
   var editButton=document.createElement("button");//edit button
+    editButton.className = 'button'
   //button.delete
   var deleteButton=document.createElement("button");//delete button
+    deleteButton.className = 'button'
   var deleteButtonImg=document.createElement("img");//delete button image
+    deleteButtonImg.className="img"
 
   label.innerText=taskString;
-  label.className="task";
+  label.classList.add("task");
   //Each elements, needs appending
   checkBox.type="checkbox";
   editInput.type="text";
-  editInput.className="task";
+  editInput.classList.add("task");
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className="edit";
+  editButton.classList.add("edit");
 
-  deleteButton.className="delete";
+  deleteButton.classList.add("delete");
   deleteButtonImg.src="./remove.svg";
   deleteButton.appendChild(deleteButtonImg);
   //and appending.
@@ -136,8 +143,8 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
   console.log("bind list item events");
   //select ListItems children
   var checkBox=taskListItem.querySelector("input[type=checkbox]");
-  var editButton=taskListItem.querySelector("button.edit");
-  var deleteButton=taskListItem.querySelector("button.delete");
+  var editButton=taskListItem.querySelector(".button.edit");
+  var deleteButton=taskListItem.querySelector(".button.delete");
   //Bind editTask to edit button.
   editButton.onclick=editTask;
   //Bind deleteTask to delete button.
